@@ -130,7 +130,7 @@ The other thing that this indicates is that the instruction will handle the stac
 
 When you're calling a method, the first thing the VM is going to do it look the method up. It does this by starting at the singleton class of the receiver and walking up the inheritance chain until it finds a method with the same name as the one you're calling. If it doesn't find one, it will then do the same walk looking for the definition of `method_missing`. `method_missing` is defined on `BasicObject` which is the top of the inheritance chain, so this is always guaranteed to find a method.[^3]
 
-Once the method has been found, the VM is going to look up the method type.[^4] Each method type has a specific calling convention that the VM will use to call the method, so the VM need this information to know how to set up the call. We're not going to discuss every method type in this post (actually we're only going to talk about one of them), but for completeness, here is the list of all of the different kinds of methods that the VM can call:
+Once the method has been found, the VM is going to look up the method type.[^4] Each method type has a specific calling convention that the VM will use to call the method, so the VM needs this information to know how to set up the call. We're not going to discuss every method type in this post (actually we're only going to talk about one of them), but for completeness, here is the list of all of the different kinds of methods that the VM can call:
 
 VM_METHOD_TYPE_ISEQ
 : methods defined in Ruby
